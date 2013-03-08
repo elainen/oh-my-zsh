@@ -95,6 +95,14 @@ function steeef_precmd {
 }
 add-zsh-hook precmd steeef_precmd
 
+
+eval my_gray='$FG[237]'
+
 PROMPT=$'
-%{$purple%}%n%{$reset_color%} in %{$limegreen%}%~%{$reset_color%} $vcs_info_msg_0_
-$(virtualenv_info)$ '
+$FG[237]------------------------------------------------------------%{$reset_color%}
+%{$purple%}$(virtualenv_info)%{$reset_color%}in %{$limegreen%}%~%{$reset_color%} $vcs_info_msg_0_
+%F{161}$%{$reset_color%} '
+
+
+# right prompt
+RPROMPT='$my_gray%n%{$reset_color%}%'
