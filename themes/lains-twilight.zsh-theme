@@ -51,8 +51,8 @@ zstyle ':vcs_info:*:prompt:*' check-for-changes true
 PR_RST="%{${reset_color}%}"
 FMT_BRANCH="(%{$turquoise%}%b%u%c${PR_RST})"
 FMT_ACTION="(%{$limegreen%}%a${PR_RST})"
-FMT_UNSTAGED="%{$orange%} ⚡ "
-FMT_STAGED="%{$limegreen%} ☂ "
+FMT_UNSTAGED="%{$orange%}⚡"
+FMT_STAGED="%{$limegreen%}☂"
 
 zstyle ':vcs_info:*:prompt:*' unstagedstr   "${FMT_UNSTAGED}"
 zstyle ':vcs_info:*:prompt:*' stagedstr     "${FMT_STAGED}"
@@ -83,7 +83,7 @@ function steeef_precmd {
         # check for untracked files or updated submodules, since vcs_info doesn't
         if git ls-files --other --exclude-standard --directory 2> /dev/null | grep -q "."; then
             PR_GIT_UPDATE=1
-            FMT_BRANCH="[%{$turquoise%}%b%u%c%{$purple%} ☁ ${PR_RST}]"
+            FMT_BRANCH="[%{$turquoise%}%b%u%c%{$purple%}☁${PR_RST}]"
         else
             FMT_BRANCH="[%{$turquoise%}%b%u%c${PR_RST}]"
         fi
@@ -100,7 +100,7 @@ eval my_gray='$FG[237]'
 PROMPT=$'
 $FG[237]------------------------------------------------------------%{$reset_color%}
 $FG[012]$(virtualenv_info)%{$reset_color%}in %{$limegreen%}%~%{$reset_color%} $vcs_info_msg_0_
-%{$purple%}♥%{$reset_color%} '
+%{$purple%}♥ %{$reset_color%}%{$limegreen%}▸%{$reset_color%}%{$turquoise%}▸%{$reset_color%} '
 
 
 # right prompt
